@@ -12,7 +12,6 @@ db_date_format = '%d.%m.%Y %H:%M:%S'
 
 # Intervals (s)
 check_updates_interval = 120
-send_message_interval = 0.055
 max_request_delay = 5
 
 
