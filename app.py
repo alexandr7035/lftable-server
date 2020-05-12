@@ -23,4 +23,5 @@ def get_timetable():
         return('Invalid timetable name. Possible variants are: ' + str(possible_timetables))
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
