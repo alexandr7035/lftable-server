@@ -39,17 +39,23 @@ class Server():
         # Set actual updates' times to the db on start
         # To prevent late notifications
         self.timetablesdb.connect()
-        for timetable in src.static.all_timetables:
-            if timetable in src.static.credit_exam_timetables:
-                data = src.gettime.credit_exam_gettime(timetable)
-                update_time = data['time']
-                relevant_url = data['url']
-            else:
-                update_time = src.gettime.gettime(timetable)
-                relevant_url = timetable.url
 
-            self.timetablesdb.write_time(timetable.shortname, update_time.strftime(src.static.db_date_format))
-            self.timetablesdb.write_url(timetable.shortname, relevant_url)
+        try:
+            for timetable in src.static.all_timetables:
+                if timetable in src.static.credit_exam_timetables:
+                    data = src.gettime.credit_exam_gettime(timetable)
+                    update_time = data['time']
+                    relevant_url = data['url']
+                else:
+                    update_time = src.gettime.gettime(timetable)
+                    relevant_url = timetable.url
+
+                self.timetablesdb.write_time(timetable.shortname, update_time.strftime(src.static.db_date_format))
+                self.timetablesdb.write_url(timetable.shortname, relevant_url)
+        
+        except Exception:
+            logger.critical("can't get data from law.bsu.by on start. EXIT")
+            exit()
 
         self.timetablesdb.close()
 
@@ -118,7 +124,7 @@ class Server():
             # Exit function if fails here
             # (Until next check)
             except Exception:
-                logger.critical("WARNING: can't get data from law.bsu.by. Left cache as is")
+                logger.critical("can't get data from law.bsu.by. Left cache as is")
                 return
 
 
