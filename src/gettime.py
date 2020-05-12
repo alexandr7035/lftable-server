@@ -6,7 +6,7 @@ from datetime import datetime
 
 # The most important function of the program.
 # Get and return timetable's update time using urllib module.
-def ttb_gettime(ttb):
+def gettime(ttb):
 
     # TO PREVENT "CERTIFICATE_VERIFY_FAILED" ERROR!
     ctx = ssl.create_default_context()

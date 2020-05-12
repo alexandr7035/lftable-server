@@ -4,10 +4,11 @@ lftable_server_version = '1.0'
 
 # Pathes
 db_dir = 'db/'
-timesdb_path = db_dir + 'cached_times.db'
+timetablesdb_path = db_dir + 'cached_timetables.db'
 log_dir = 'log/'
 log_file = log_dir + 'lftable.log'
 
+db_date_format = '%d.%m.%Y %H:%M:%S'
 
 # Intervals (s)
 check_updates_interval = 120
