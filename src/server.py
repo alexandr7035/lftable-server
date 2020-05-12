@@ -1,15 +1,16 @@
-import src.static
-import src.database
-import src.gettime
-from flask import json
 import os
 import time
 import atexit
 from datetime import datetime
 
+import src.static
+import src.database
+import src.gettime
 from src.logger import *
 
+from flask import json
 from apscheduler.schedulers.background import BackgroundScheduler
+
 
 class Server():
 
