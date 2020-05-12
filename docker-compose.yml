@@ -1,0 +1,14 @@
+# docker-compose.yml
+version: '3'
+services:
+  lftable-server:
+    image: lftable-server
+    volumes:
+        - ./log:/lftable-server/log
+        - ./db:/lftable-server/db
+
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+            - 127.0.0.1:5555:5555
