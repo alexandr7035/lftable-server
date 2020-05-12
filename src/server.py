@@ -4,18 +4,35 @@ import src.gettime
 from flask import json
 import os
 
+from src.logger import *
+
 class Server():
 
     def __init__(self):
+
+        logger.info("-")
+        logger.info("the app has been STARTED now")
+
+        # DB object for the app
         self.timetablesdb = src.database.TimetablesDB()
 
-        # Create databases. See db_classes.py (especially 'construct()' methods)
-        #TimesDS
+        # Create directory for databases if still not created
+        if not os.path.exists(src.static.db_dir):
+            os.mkdir(src.static.db_dir)
+            logger.info("'" + src.static.db_dir + "' directory was created")
+
+        # Create databases if don't exist. 
+        # See db_classes.py (especially 'construct()' methods)
         if not os.path.isfile(src.static.timetablesdb_path):
             self.timetablesdb.connect()
             self.timetablesdb.construct()
             self.timetablesdb.close()
 
+            logger.info("'" + src.static.timetablesdb_path + "' database was created")
+
+        
+        # Set actual updates' times to the db on start
+        # To prevent late notifications
         self.timetablesdb.connect()
         for timetable in src.static.all_timetables:
             if timetable in src.static.credit_exam_timetables:
@@ -34,6 +51,9 @@ class Server():
         self.timetablesdb.close()
             
 
+    # !!!!!
+    # The main method called by clients
+    # Returns JSON with timetables info
     def get_timetable(self, timetable_name):
         
         # Get timetable object by it's name
