@@ -90,7 +90,6 @@ class Server():
 
         timetable_data = {
             "short_name" : timetable.shortname,
-            "full_mame": timetable.name,
             "update_time": update_time,
             "relevant_url" : relevant_url
         }
