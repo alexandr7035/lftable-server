@@ -1,5 +1,5 @@
 # Version number
-lftable_server_version = '1.0'
+lftable_server_version = '1.0.1'
 
 
 # Pathes
