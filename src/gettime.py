@@ -23,7 +23,7 @@ def gettime(ttb):
     gmt_date = datetime.strptime(native_date, '%d %b %Y %H:%M:%S')
 
     # Transfer date to our timezone (GMT+3).
-    old_tz = pytz.timezone('Europe/London')
+    old_tz = pytz.timezone('GMT')
     new_tz = pytz.timezone('Europe/Minsk')
 
     date = old_tz.localize(gmt_date).astimezone(new_tz)
@@ -46,7 +46,7 @@ def credit_exam_gettime(timetable):
     # compare and return the freshest 
     # Else get only winter time (for course 4)
 
-    old_tz = pytz.timezone('Europe/London')
+    old_tz = pytz.timezone('GMT')
     new_tz = pytz.timezone('Europe/Minsk')
 
     if len(timetable.urls) == 2:
