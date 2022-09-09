@@ -79,7 +79,7 @@ ek_polit_c3.shortname = 'ek_polit_c3'
 ek_polit_c4.url = 'https://law.bsu.by/pub/2/Raspisanie_4_ek_polit.xls'
 ek_polit_c4.shortname = 'ek_polit_c4'
 
-mag_c1.url = 'https://law.bsu.by/pub/2/Raspisanie_mag_1_kurs.xls'
+mag_c1.url = 'https://law.bsu.by/pub/2/Raspisanie_mag_1_kurs_1s.xlsx'
 mag_c1.shortname = 'mag_c1'
 
 mag_c2.url = 'https://law.bsu.by/pub/2/Raspisanie_mag_2_kurs.xls'
