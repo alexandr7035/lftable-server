@@ -121,6 +121,8 @@ class Server():
                     update_time = src.gettime.gettime(timetable).strftime(src.static.db_date_format)
                     relevant_url = timetable.url
 
+                time.sleep(2)
+
             # Exit function if fails here
             # (Until next check)
             except Exception:

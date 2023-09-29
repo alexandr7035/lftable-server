@@ -1,5 +1,5 @@
 # Version number
-lftable_server_version = '1.6'
+lftable_server_version = '1.7'
 
 
 # Pathes
@@ -11,7 +11,7 @@ log_file = log_dir + 'lftable.log'
 db_date_format = '%d.%m.%Y %H:%M:%S'
 
 # Intervals (s)
-check_updates_interval = 120
+check_updates_interval = 420
 max_request_delay = 5
 
 
